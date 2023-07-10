@@ -30,6 +30,7 @@ class RootRouterDelegate extends RouterDelegate<RouterState> {
         key: navigatorKey,
         pages: _pages,
         onPopPage: _onPopPageParser,
+        transitionDelegate: const DefaultTransitionDelegate<dynamic>(),
       );
 
   bool _onPopPageParser(Route<dynamic> route, dynamic result) {
@@ -73,7 +74,7 @@ class RootRouterDelegate extends RouterDelegate<RouterState> {
   List<Page> get _loginPageStack {
     return [
       _materialPage(
-        valueKey: splashKey,
+        valueKey: loginKey,
         child: const LoginScreen(),
       ),
     ];
@@ -82,7 +83,7 @@ class RootRouterDelegate extends RouterDelegate<RouterState> {
   List<Page> get _homePageStack {
     return [
       _materialPage(
-        valueKey: splashKey,
+        valueKey: homeKey,
         child: const HomeScreen(),
       ),
     ];
