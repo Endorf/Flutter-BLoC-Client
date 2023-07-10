@@ -1,7 +1,7 @@
 import 'package:bloc_app/domain/router/router_bloc.dart';
 import 'package:bloc_app/domain/router/state.dart';
-import 'package:bloc_app/ui/screen/home.dart';
-import 'package:bloc_app/ui/screen/login.dart';
+import 'package:bloc_app/ui/screen/home/page/home_page.dart';
+import 'package:bloc_app/ui/screen/login/page/login_page.dart';
 import 'package:bloc_app/ui/screen/splash.dart';
 import 'package:flutter/material.dart';
 
@@ -72,21 +72,11 @@ class RootRouterDelegate extends RouterDelegate<RouterState> {
   }
 
   List<Page> get _loginPageStack {
-    return [
-      _materialPage(
-        valueKey: loginKey,
-        child: const LoginScreen(),
-      ),
-    ];
+    return [LoginPage()];
   }
 
   List<Page> get _homePageStack {
-    return [
-      _materialPage(
-        valueKey: homeKey,
-        child: const HomeScreen(),
-      ),
-    ];
+    return [HomePage()];
   }
 
   Page _materialPage({
