@@ -32,7 +32,7 @@ class Application extends StatelessWidget {
     );
   }
 
-  Widget get _routers => BlocBuilder<RouterBloc, RouterState>(
+  Widget get _routers => BlocBuilder<RouterBloc, RouteState>(
         builder: (context, state) => Router(
           routerDelegate: RootRouterDelegate(
             navigatorKey,
