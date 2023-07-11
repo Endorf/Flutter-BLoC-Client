@@ -11,10 +11,11 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final router = context.read<RouterBloc>();
     return BlocConsumer<InitializationBloc, SplashState>(
         listener: (context, state) {
           if (state.isReady) {
+            final router = context.read<RouterBloc>();
+
             if (state.isAuthenticated) {
               router.add(HomeEvent());
             } else {
