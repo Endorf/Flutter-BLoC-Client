@@ -1,7 +1,9 @@
-abstract class RouterState {}
+abstract class RouteState {}
 
-class SplashState implements RouterState {}
+class SplashState extends RouteState {}
 
-class LoginState implements RouterState {}
+class LoginState extends RouteState {}
 
-class HomeState implements RouterState {}
+class HomeState extends RouteState {}
+
+class CreationState extends RouteState {}
