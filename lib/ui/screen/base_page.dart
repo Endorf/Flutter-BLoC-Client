@@ -6,23 +6,22 @@ abstract class BasePage extends Page {
     return PageRouteBuilder(
       settings: this,
       pageBuilder: (context, animation, animation2) {
-        return SlideTransition(
-          position: provideAnimation(animation, animation2),
-          child: screen,
-        );
+        return screen;
+      },
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        return provideTransition(animation, child);
       },
       transitionDuration: const Duration(milliseconds: 300),
     );
   }
 
-  Animation<Offset> provideAnimation(
-    Animation<double> animation,
-    Animation<double> animation2,
-  ) {
-    final tween =
-        Tween(begin: const Offset(1.0, 0.0), end: const Offset(0.0, 0.0));
+  Widget provideTransition(Animation<double> animation, Widget child) {
+    final tween = Tween(begin: const Offset(1.0, 0.0), end: Offset.zero);
     final curveTween = CurveTween(curve: Curves.easeInOut);
-    return animation.drive(curveTween).drive(tween);
+    return SlideTransition(
+      position: animation.drive(curveTween).drive(tween),
+      child: screen,
+    );
   }
 
   Widget get screen;
