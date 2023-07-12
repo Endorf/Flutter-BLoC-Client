@@ -1,3 +1,4 @@
+import 'package:bloc_app/ui/theme/resources/pages.dart';
 import 'package:flutter/material.dart';
 
 class MainTransitionDelegate extends TransitionDelegate<void> {
@@ -18,7 +19,14 @@ class MainTransitionDelegate extends TransitionDelegate<void> {
     }
     for (final RouteTransitionRecord exitingPageRoute
         in locationToExitingPageRoute.values) {
-      exitingPageRoute.markForPop();
+      // TODO: create validation
+      if (allowedPageAnimation(exitingPageRoute)) {
+        exitingPageRoute.markForComplete();
+      } else {
+        exitingPageRoute.markForPop();
+      }
+      // exitingPageRoute.markForPop();
+
       final List<RouteTransitionRecord>? pagelessRoutes =
           pageRouteToPagelessRoutes[exitingPageRoute];
       if (pagelessRoutes != null) {
@@ -29,5 +37,9 @@ class MainTransitionDelegate extends TransitionDelegate<void> {
       results.add(exitingPageRoute);
     }
     return results;
+  }
+
+  bool allowedPageAnimation(RouteTransitionRecord exitingPageRoute) {
+    return exitingPageRoute.route.settings.name != Pages.splash;
   }
 }
