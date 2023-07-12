@@ -5,4 +5,12 @@ import 'package:flutter/material.dart';
 class SplashPage extends BasePage {
   @override
   Widget get screen => const SplashScreen();
+
+  @override
+  Widget provideTransition(Animation<double> animation, Widget child) {
+    return FadeTransition(
+      opacity: animation,
+      child: child,
+    );
+  }
 }
