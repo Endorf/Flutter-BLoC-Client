@@ -11,6 +11,7 @@ abstract class BasePage extends Page {
           child: screen,
         );
       },
+      transitionDuration: const Duration(milliseconds: 300),
     );
   }
 
@@ -18,7 +19,8 @@ abstract class BasePage extends Page {
     Animation<double> animation,
     Animation<double> animation2,
   ) {
-    final tween = Tween(begin: const Offset(0.0, 1.0), end: Offset.zero);
+    final tween =
+        Tween(begin: const Offset(1.0, 0.0), end: const Offset(0.0, 0.0));
     final curveTween = CurveTween(curve: Curves.easeInOut);
     return animation.drive(curveTween).drive(tween);
   }
