@@ -25,8 +25,8 @@ class Application extends StatelessWidget {
       ],
       child: MaterialApp(
         title: Strings.appName,
-        // TODO: add check device dark\light mode
-        theme: themeData(ThemeData.light()),
+        // TODO: add check device dark\light mode. Reuse ThemeConfig[light|dark]
+        theme: _themeLightData(ThemeData.light()),
         home: _routers,
       ),
     );
@@ -42,22 +42,63 @@ class Application extends StatelessWidget {
         ),
       );
 
-  ThemeData get _theme {
-    return ThemeData(
-      colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      useMaterial3: true,
-    );
-  }
-
-  ThemeData themeData(ThemeData theme) {
+  ThemeData _themeLightData(ThemeData theme) {
     return theme.copyWith(
       colorScheme: theme.colorScheme.copyWith(
-        secondary: ThemeConfig.experimentalAccentColor,
+        primary: ThemeConfig.experimentalAccentColor,
+        // secondary: ThemeConfig.experimentalAccentColor,
+        // onPrimary: ThemeConfig.experimentalAccentColor,
+        // primaryContainer: ThemeConfig.experimentalAccentColor,
+        // onPrimaryContainer: ThemeConfig.experimentalAccentColor,
+        // onSecondary: ThemeConfig.experimentalAccentColor,
+        // secondaryContainer: ThemeConfig.experimentalAccentColor,
+        // onSecondaryContainer: ThemeConfig.experimentalAccentColor,
+        // tertiary: ThemeConfig.experimentalAccentColor,
+        // onTertiary: ThemeConfig.experimentalAccentColor,
+        // tertiaryContainer: ThemeConfig.experimentalAccentColor,
+        // onTertiaryContainer: ThemeConfig.experimentalAccentColor,
+        // required this.error,
+        // required this.onError,
+        // Color? errorContainer,
+        // Color? onErrorContainer,
+        background: ThemeConfig.experimentalBackgroundColor,
+        // onBackground: ThemeConfig.experimentalAccentColor,
+        // surface: ThemeConfig.experimentalAccentColor,
+        // onSurface: ThemeConfig.experimentalAccentColor,
+        // surfaceVariant: ThemeConfig.experimentalAccentColor,
+        onSurfaceVariant: ThemeConfig.experimentalTextColor,
+        // outline: ThemeConfig.experimentalAccentColor,
+        // outlineVariant: ThemeConfig.experimentalAccentColor,
+        // shadow: ThemeConfig.experimentalAccentColor,
+        // scrim: ThemeConfig.experimentalAccentColor,
+        // inverseSurface: ThemeConfig.experimentalAccentColor,
+        // onInverseSurface: ThemeConfig.experimentalAccentColor,
+        // inversePrimary: ThemeConfig.experimentalAccentColor,
+        // surfaceTint: ThemeConfig.experimentalAccentColor,
       ),
-      primaryColor: Colors.lightBlue[800],
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+            backgroundColor: ThemeConfig.experimentalAccentColor,
+            foregroundColor: ThemeConfig.experimentalTertiary,
+            elevation: 1,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            )),
+      ),
       textTheme: const TextTheme(
-        displayLarge: TextStyle(fontSize: 72, fontWeight: FontWeight.bold),
-        titleLarge: TextStyle(fontSize: 36, fontStyle: FontStyle.italic),
+        displayMedium: TextStyle(color: ThemeConfig.experimentalTextColor),
+        displaySmall: TextStyle(color: ThemeConfig.experimentalTextColor),
+        headlineMedium: TextStyle(color: ThemeConfig.experimentalTextColor),
+        headlineSmall: TextStyle(color: ThemeConfig.experimentalTextColor),
+        titleLarge: TextStyle(color: ThemeConfig.experimentalTextColor),
+        titleMedium: TextStyle(color: ThemeConfig.experimentalTextColor),
+        titleSmall: TextStyle(color: ThemeConfig.experimentalTextColor),
+        bodyLarge: TextStyle(color: ThemeConfig.experimentalTextColor),
+        bodyMedium: TextStyle(color: ThemeConfig.experimentalTextColor),
+        bodySmall: TextStyle(color: ThemeConfig.experimentalTextColor),
+        labelLarge: TextStyle(color: ThemeConfig.experimentalAccentColor),
+        labelMedium: TextStyle(color: ThemeConfig.experimentalAccentColor),
+        labelSmall: TextStyle(color: ThemeConfig.experimentalAccentColor),
       ),
       useMaterial3: true,
     );
