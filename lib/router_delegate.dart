@@ -1,3 +1,4 @@
+import 'package:bloc_app/main_transition_delegate.dart';
 import 'package:bloc_app/domain/router/event.dart';
 import 'package:bloc_app/domain/router/router_bloc.dart';
 import 'package:bloc_app/domain/router/state.dart';
@@ -33,11 +34,11 @@ class RootRouterDelegate extends RouterDelegate<RouteState>
   Widget build(BuildContext context) => Navigator(
         key: navigatorKey,
         pages: _pages,
-        onPopPage: _onPopPageParser,
-        transitionDelegate: const DefaultTransitionDelegate<dynamic>(),
+        onPopPage: _onPopPage,
+        transitionDelegate: MainTransitionDelegate(),
       );
 
-  bool _onPopPageParser(Route<dynamic> route, dynamic result) {
+  bool _onPopPage(Route<dynamic> route, dynamic result) {
     if (!route.didPop(result)) {
       return false;
     }
