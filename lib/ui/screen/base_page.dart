@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 abstract class BasePage extends Page {
+  const BasePage(String name) : super(name: name);
+
   @override
   Route createRoute(BuildContext context) {
     return PageRouteBuilder(
