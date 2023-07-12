@@ -1,4 +1,4 @@
-import 'package:bloc_app/main_transition_delegate.dart';
+import 'package:bloc_app/ui/navigation/main_transition_delegate.dart';
 import 'package:bloc_app/domain/router/event.dart';
 import 'package:bloc_app/domain/router/router_bloc.dart';
 import 'package:bloc_app/domain/router/state.dart';

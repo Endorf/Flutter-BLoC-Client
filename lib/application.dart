@@ -2,7 +2,7 @@ import 'package:bloc_app/domain/initialization/event.dart';
 import 'package:bloc_app/domain/initialization/initialization_bloc.dart';
 import 'package:bloc_app/domain/router/router_bloc.dart';
 import 'package:bloc_app/domain/router/state.dart';
-import 'package:bloc_app/router_delegate.dart';
+import 'package:bloc_app/ui/navigation/router_delegate.dart';
 import 'package:bloc_app/ui/theme/material_theme_data.dart';
 import 'package:bloc_app/ui/theme/resources/strings.dart';
 import 'package:flutter/material.dart';
