@@ -1,19 +1,9 @@
-class RouterState1 {
-  final bool isLoading;
-  final bool isReady;
-  final bool isAuthenticated;
+abstract class RouteState {}
 
-  RouterState1({
-    this.isLoading = false,
-    this.isReady = false,
-    this.isAuthenticated = false,
-  });
-}
+class SplashState extends RouteState {}
 
-abstract class RouterState {}
+class LoginState extends RouteState {}
 
-class SplashState implements RouterState {}
+class HomeState extends RouteState {}
 
-class LoginState implements RouterState {}
-
-class HomeState implements RouterState {}
+class CreationState extends RouteState {}

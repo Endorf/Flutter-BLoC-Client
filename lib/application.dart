@@ -25,14 +25,14 @@ class Application extends StatelessWidget {
       ],
       child: MaterialApp(
         title: Strings.appName,
-        theme: themeData(
-            ThemeData.light()), // TODO: add check device dark\light mode
+        // TODO: add check device dark\light mode
+        theme: themeData(ThemeData.light()),
         home: _routers,
       ),
     );
   }
 
-  Widget get _routers => BlocBuilder<RouterBloc, RouterState>(
+  Widget get _routers => BlocBuilder<RouterBloc, RouteState>(
         builder: (context, state) => Router(
           routerDelegate: RootRouterDelegate(
             navigatorKey,

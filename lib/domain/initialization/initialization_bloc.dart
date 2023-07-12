@@ -12,9 +12,9 @@ class InitializationBloc extends Bloc<Event, SplashState> {
       emit(SplashState(isLoading: true));
 
       try {
-        await repository.authenticate();
+        bool isAuthenticated = await repository.authenticate();
 
-        emit(SplashState(isReady: true, isAuthenticated: true));
+        emit(SplashState(isReady: true, isAuthenticated: isAuthenticated));
       } catch (error) {
         emit(SplashState(isReady: true));
       }
