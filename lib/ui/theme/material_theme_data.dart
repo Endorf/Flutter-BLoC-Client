@@ -4,7 +4,7 @@ import 'package:flutter/scheduler.dart';
 class ThemeConfig {
   static const Color experimentalPrimaryColorLight = Color(0xffdc2430);
   static const Color experimentalAccentColorLight = Color(0xFF326BD6);
-  static const Color experimentalBackgroundColorLight = Color(0xf9FFF6F6);
+  static const Color experimentalBackgroundColorLight = Color(0xe0FFF6F6);
   static const Color experimentalTextColorLight = Color(0xff444444);
 
   static const Color experimentalPrimaryColorDark = Color(0xffdc2430);
@@ -23,6 +23,13 @@ class ThemeConfig {
           ? ThemeConfig.experimentalTextColorDark
           : ThemeConfig.experimentalTextColorLight);
 
+  static TextStyle get textSmallStyle => TextStyle(
+        fontStyle: FontStyle.italic,
+        color: _isDarkMode
+            ? ThemeConfig.experimentalTextColorDark
+            : ThemeConfig.experimentalTextColorLight,
+      );
+
   static TextStyle get labelStyle => TextStyle(
       color: _isDarkMode
           ? ThemeConfig.experimentalAccentColorDark
@@ -34,12 +41,17 @@ class ThemeConfig {
         primary: _isDarkMode
             ? ThemeConfig.experimentalAccentColorDark
             : ThemeConfig.experimentalAccentColorLight,
+        onPrimaryContainer: _isDarkMode
+            ? ThemeConfig.experimentalAccentColorDark
+            : ThemeConfig.experimentalPrimaryColorLight,
+        onPrimary: Colors.white,
         background: _isDarkMode
             ? ThemeConfig.experimentalBackgroundColorDark
             : ThemeConfig.experimentalBackgroundColorLight,
         onSurfaceVariant: _isDarkMode
             ? ThemeConfig.experimentalTextColorDark
             : ThemeConfig.experimentalTextColorLight,
+        onTertiary: ThemeConfig.experimentalTertiary,
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
@@ -60,9 +72,9 @@ class ThemeConfig {
         titleLarge: textStyle,
         titleMedium: textStyle,
         titleSmall: textStyle,
-        bodyLarge: textStyle,
+        bodyLarge: textStyle.copyWith(fontSize: 18),
         bodyMedium: textStyle,
-        bodySmall: textStyle,
+        bodySmall: textSmallStyle,
         labelLarge: textStyle,
         labelMedium: labelStyle,
         labelSmall: labelStyle,
