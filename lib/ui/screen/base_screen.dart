@@ -1,6 +1,7 @@
 import 'package:bloc_app/ui/widget/app_container.dart';
 import 'package:flutter/material.dart';
 
+// TODO: refactor screens transitions;
 abstract class BaseScreen extends StatelessWidget {
   final String title;
 
