@@ -23,6 +23,6 @@ class SplashScreen extends StatelessWidget {
             }
           }
         },
-        builder: (context, state) => const AppContainer());
+        builder: (context, state) => const RootContentContainer());
   }
 }

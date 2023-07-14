@@ -14,7 +14,7 @@ abstract class BaseScreen extends StatelessWidget {
     return Scaffold(
       // TODO: add hide/show animation.
       appBar: _isAppBarVisible ? AppBar(title: Text(title)) : null,
-      body: AppContainer(child: buildChildren(context)),
+      body: RootContentContainer(child: buildChildren(context)),
     );
   }
 
