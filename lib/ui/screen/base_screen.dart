@@ -14,7 +14,11 @@ abstract class BaseScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       // TODO: add hide/show animation.
-      appBar: _isAppBarVisible ? AppBar(title: Text(title)) : null,
+      appBar: _isAppBarVisible
+          ? AppBar(centerTitle: true, title: Text(title))
+          : null,
+      floatingActionButton: buildfloatingActionButton(context),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       body: RootContentContainer(child: buildChildren(context)),
     );
   }
@@ -22,4 +26,6 @@ abstract class BaseScreen extends StatelessWidget {
   bool get _isAppBarVisible => true;
 
   Widget buildChildren(BuildContext context);
+
+  Widget? buildfloatingActionButton(BuildContext context) => null;
 }
