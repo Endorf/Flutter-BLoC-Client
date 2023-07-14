@@ -2,9 +2,9 @@ import 'package:bloc_app/ui/theme/material_theme_data.dart';
 import 'package:flutter/material.dart';
 
 class AppContainer extends StatelessWidget {
-  final Widget? childWidget;
+  final Widget? child;
 
-  const AppContainer({super.key, this.childWidget = const Stack()});
+  const AppContainer({super.key, this.child = const Stack()});
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +17,6 @@ class AppContainer extends StatelessWidget {
             ThemeConfig.experimentalPrimaryColor,
           ],
         )),
-        child: childWidget);
+        child: child);
   }
 }
