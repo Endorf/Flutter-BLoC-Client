@@ -6,11 +6,13 @@ class ThemeConfig {
   static const Color experimentalAccentColorLight = Color(0xFF326BD6);
   static const Color experimentalBackgroundColorLight = Color(0xe0FFF6F6);
   static const Color experimentalTextColorLight = Color(0xff444444);
+  static const Color experimentalTertiaryLight = Color(0xFFFFF6F6);
 
   static const Color experimentalPrimaryColorDark = Color(0xffdc2430);
   static const Color experimentalAccentColorDark = Color(0xff6c9696);
-  static const Color experimentalBackgroundColorDark = Color(0xee333333);
+  static const Color experimentalBackgroundColorDark = Color(0xe0333333);
   static const Color experimentalTextColorDark = Color(0x9BD8FFFF);
+  static const Color experimentalTertiaryDark = Color(0xFF5F0404);
 
   static const Color experimentalTertiary = Color(0xFFFFF6F6);
 
@@ -51,7 +53,9 @@ class ThemeConfig {
         onSurfaceVariant: _isDarkMode
             ? ThemeConfig.experimentalTextColorDark
             : ThemeConfig.experimentalTextColorLight,
-        onTertiary: ThemeConfig.experimentalTertiary,
+        onTertiary: _isDarkMode
+            ? ThemeConfig.experimentalTertiaryDark
+            : ThemeConfig.experimentalTertiaryLight,
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
