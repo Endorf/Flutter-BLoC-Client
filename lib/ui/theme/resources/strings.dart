@@ -8,4 +8,6 @@ class Strings {
   static const emailLabel = 'Email';
 
   static const enterTitle = 'Enter';
+
+  static const homeTooltip = 'create note';
 }
