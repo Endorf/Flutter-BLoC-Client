@@ -4,13 +4,15 @@ import 'package:flutter/scheduler.dart';
 class ThemeConfig {
   static const Color experimentalPrimaryColorLight = Color(0xffdc2430);
   static const Color experimentalAccentColorLight = Color(0xFF326BD6);
-  static const Color experimentalBackgroundColorLight = Color(0xf9FFF6F6);
+  static const Color experimentalBackgroundColorLight = Color(0xe0FFF6F6);
   static const Color experimentalTextColorLight = Color(0xff444444);
+  static const Color experimentalTertiaryLight = Color(0xFFFFF6F6);
 
   static const Color experimentalPrimaryColorDark = Color(0xffdc2430);
   static const Color experimentalAccentColorDark = Color(0xff6c9696);
-  static const Color experimentalBackgroundColorDark = Color(0xee333333);
+  static const Color experimentalBackgroundColorDark = Color(0xe0333333);
   static const Color experimentalTextColorDark = Color(0x9BD8FFFF);
+  static const Color experimentalTertiaryDark = Color(0xFF5F0404);
 
   static const Color experimentalTertiary = Color(0xFFFFF6F6);
 
@@ -23,6 +25,13 @@ class ThemeConfig {
           ? ThemeConfig.experimentalTextColorDark
           : ThemeConfig.experimentalTextColorLight);
 
+  static TextStyle get textSmallStyle => TextStyle(
+        fontStyle: FontStyle.italic,
+        color: _isDarkMode
+            ? ThemeConfig.experimentalTextColorDark
+            : ThemeConfig.experimentalTextColorLight,
+      );
+
   static TextStyle get labelStyle => TextStyle(
       color: _isDarkMode
           ? ThemeConfig.experimentalAccentColorDark
@@ -34,12 +43,19 @@ class ThemeConfig {
         primary: _isDarkMode
             ? ThemeConfig.experimentalAccentColorDark
             : ThemeConfig.experimentalAccentColorLight,
+        onPrimaryContainer: _isDarkMode
+            ? ThemeConfig.experimentalAccentColorDark
+            : ThemeConfig.experimentalPrimaryColorLight,
+        onPrimary: Colors.white,
         background: _isDarkMode
             ? ThemeConfig.experimentalBackgroundColorDark
             : ThemeConfig.experimentalBackgroundColorLight,
         onSurfaceVariant: _isDarkMode
             ? ThemeConfig.experimentalTextColorDark
             : ThemeConfig.experimentalTextColorLight,
+        onTertiary: _isDarkMode
+            ? ThemeConfig.experimentalTertiaryDark
+            : ThemeConfig.experimentalTertiaryLight,
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
@@ -60,9 +76,9 @@ class ThemeConfig {
         titleLarge: textStyle,
         titleMedium: textStyle,
         titleSmall: textStyle,
-        bodyLarge: textStyle,
+        bodyLarge: textStyle.copyWith(fontSize: 18),
         bodyMedium: textStyle,
-        bodySmall: textStyle,
+        bodySmall: textSmallStyle,
         labelLarge: textStyle,
         labelMedium: labelStyle,
         labelSmall: labelStyle,

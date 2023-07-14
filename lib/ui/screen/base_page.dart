@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 abstract class BasePage extends Page {
+  static const duration = 200;
   const BasePage(String name) : super(name: name);
 
   @override
@@ -13,7 +14,7 @@ abstract class BasePage extends Page {
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         return provideTransition(animation, child);
       },
-      transitionDuration: const Duration(milliseconds: 300),
+      transitionDuration: const Duration(milliseconds: duration),
     );
   }
 
