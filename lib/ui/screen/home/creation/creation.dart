@@ -16,7 +16,7 @@ class CreationScreen extends StatelessWidget {
           ),
         ),
         TextButton(
-          onPressed: () => onCreate,
+          onPressed: () => onCreate(),
           child: const Text('Create'),
         ),
       ],
