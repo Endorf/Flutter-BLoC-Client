@@ -19,6 +19,7 @@ class DefaultTextFormField extends StatelessWidget {
     return Padding(
         padding: const EdgeInsets.all(_paddings),
         child: TextFormField(
+          autocorrect: false,
           obscureText: false,
           validator: (value) {
             if (value == null || value.isEmpty) {

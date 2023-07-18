@@ -1,4 +1,4 @@
-import 'package:bloc_app/ui/screen/home/list/widget/note_item.dart';
+import 'package:bloc_app/ui/screen/home/widget/note_item.dart';
 import 'package:flutter/material.dart';
 
 class NoteList extends StatefulWidget {
