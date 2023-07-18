@@ -56,6 +56,7 @@ class ThemeConfig {
         onTertiary: _isDarkMode
             ? ThemeConfig.experimentalTertiaryDark
             : ThemeConfig.experimentalTertiaryLight,
+        error: ThemeConfig.experimentalPrimaryColorDark,
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(

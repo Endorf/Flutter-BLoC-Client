@@ -22,13 +22,12 @@ class RootRouterDelegate extends RouterDelegate<RouteState>
   )   : _navigatorKey = navigatorKey,
         _routerBloc = routerBloc;
 
-  List<Page> get _pages {
-    if (_routerBloc.state is SplashState) return [SplashPage()];
-    if (_routerBloc.state is LoginState) return [LoginPage()];
-    if (_routerBloc.state is HomeState) return [HomePage()];
-    if (_routerBloc.state is CreationState) return [CreationPage()];
-    return List.empty();
-  }
+  List<Page> get _pages => [
+        if (_routerBloc.state is SplashState) const SplashPage(),
+        if (_routerBloc.state is LoginState) const LoginPage(),
+        if (_routerBloc.state is HomeContext) const HomePage(),
+        if (_routerBloc.state is CreationContext) const CreationPage(),
+      ];
 
   @override
   Widget build(BuildContext context) => Navigator(

@@ -2,10 +2,10 @@ import 'package:bloc_app/ui/widget/app_container.dart';
 import 'package:flutter/material.dart';
 
 // TODO: refactor screens transitions;
-abstract class BaseScreen extends StatelessWidget {
+abstract class BaseStatelessScreenWidget extends StatelessWidget {
   final String title;
 
-  const BaseScreen({
+  const BaseStatelessScreenWidget({
     super.key,
     required this.title,
   });

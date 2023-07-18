@@ -10,4 +10,7 @@ class Strings {
   static const enterTitle = 'Enter';
 
   static const homeTooltip = 'create note';
+  static const titleNoteLabel = 'Title';
+  static const detailsNoteLabel = 'Details';
+  static const submitNoteLabel = 'Submit';
 }
