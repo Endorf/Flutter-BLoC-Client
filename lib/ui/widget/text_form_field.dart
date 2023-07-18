@@ -5,9 +5,14 @@ class DefaultTextFormField extends StatelessWidget {
 
   final String labelText;
   final TextEditingController? controller;
+  final TextInputType keyboardType;
 
-  const DefaultTextFormField(
-      {super.key, required this.labelText, this.controller});
+  const DefaultTextFormField({
+    super.key,
+    required this.labelText,
+    this.controller,
+    this.keyboardType = TextInputType.text,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +25,7 @@ class DefaultTextFormField extends StatelessWidget {
         padding: const EdgeInsets.all(_paddings),
         child: TextFormField(
           autocorrect: false,
+          keyboardType: keyboardType,
           obscureText: false,
           validator: (value) {
             if (value == null || value.isEmpty) {
