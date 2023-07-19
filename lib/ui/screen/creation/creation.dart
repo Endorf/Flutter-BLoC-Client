@@ -44,7 +44,7 @@ class _CreationScreenState extends State<CreationScreen> {
         body: RootContentContainer(child: _buildChildren(context)));
   }
 
-  Widget _buildChildren(BuildContext context) {
+  Widget _buildChildren(BuildContext mainContext) {
     return BlocConsumer<CreationBloc, CreationState>(
       listener: (context, state) {
         if (state.isSuccessfullySubmited) {
