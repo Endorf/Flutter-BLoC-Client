@@ -14,7 +14,11 @@ class CreationBloc extends Bloc<Event, CreationState> {
       try {
         bool isAuthenticated = await repository.authenticate();
 
-        emit(CreationState(isSuccessfullySubmited: isAuthenticated));
+        emit(CreationState(
+          isSuccessfullySubmited: isAuthenticated,
+          hasError: !isAuthenticated,
+          message: "error",
+        ));
       } catch (error) {
         emit(CreationState(isSuccessfullySubmited: false, message: "error"));
       }
