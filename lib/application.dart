@@ -1,3 +1,4 @@
+import 'package:bloc_app/domain/creation/creation_bloc.dart';
 import 'package:bloc_app/domain/initialization/event.dart';
 import 'package:bloc_app/domain/initialization/initialization_bloc.dart';
 import 'package:bloc_app/domain/router/router_bloc.dart';
@@ -21,7 +22,8 @@ class Application extends StatelessWidget {
           lazy: false,
           create: (context) => InitializationBloc()..add(Event()),
         ),
-        BlocProvider(create: (context) => RouterBloc())
+        BlocProvider(create: (context) => RouterBloc()),
+        BlocProvider(create: (context) => CreationBloc())
       ],
       child: MaterialApp(
         title: Strings.appName,
