@@ -16,20 +16,17 @@ class DefaultDropdownButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final focusedBorder = theme.colorScheme.primary;
-    final enabledBorder = theme.colorScheme.onSurfaceVariant;
+    final borderSide = BorderSide(
+      color: Theme.of(context).colorScheme.onSurfaceVariant,
+    );
 
     return DropdownButtonFormField<String>(
       padding: const EdgeInsets.all(_padding),
       value: selectedValue,
       decoration: InputDecoration(
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: focusedBorder),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: enabledBorder),
-        ),
+        border: OutlineInputBorder(borderSide: borderSide),
+        focusedBorder: OutlineInputBorder(borderSide: borderSide),
+        enabledBorder: OutlineInputBorder(borderSide: borderSide),
       ),
       onChanged: (String? value) => onChanged(value),
       selectedItemBuilder: (BuildContext context) {
