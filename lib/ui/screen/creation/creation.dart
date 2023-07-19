@@ -7,6 +7,7 @@ import 'package:bloc_app/ui/theme/resources/strings.dart';
 import 'package:bloc_app/ui/widget/app_container.dart';
 import 'package:bloc_app/ui/widget/button.dart';
 import 'package:bloc_app/ui/widget/dropdown.dart';
+import 'package:bloc_app/ui/widget/progress_bar.dart';
 import 'package:bloc_app/ui/widget/text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -26,7 +27,6 @@ class _CreationScreenState extends State<CreationScreen> {
   final List<String> dropDownTags = ["General", "Quote", 'Metaphor'];
   String tag = "General";
 
-  final double _progreeIndicatorHeight = 3;
   final double _elevationButtonPadding = 12;
   final double _textFormPadding = 8;
 
@@ -69,13 +69,7 @@ class _CreationScreenState extends State<CreationScreen> {
 
   Widget _buildForm(BuildContext context, CreationState state) {
     return Column(children: [
-      SizedBox(
-        height: _progreeIndicatorHeight,
-        child: Visibility(
-          visible: state.isLoading,
-          child: const LinearProgressIndicator(),
-        ),
-      ),
+      LinearProgressBar(isLoading: state.isLoading),
       Form(
         key: _formKey,
         child: Align(
