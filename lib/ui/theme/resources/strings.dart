@@ -13,4 +13,6 @@ class Strings {
   static const titleNoteLabel = 'Title';
   static const detailsNoteLabel = 'Details';
   static const submitNoteLabel = 'Submit';
+
+  static const defaultErrorMessage = 'Something went wrong';
 }
