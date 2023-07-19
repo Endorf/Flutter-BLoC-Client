@@ -10,6 +10,8 @@ class Strings {
   static const enterTitle = 'Enter';
 
   static const homeTooltip = 'create note';
+  static const homeEmptyListLabel = 'There are no notes yet :(';
+  static const homeEmptyListSemanticLabel = 'No Notes';
   static const titleNoteLabel = 'Title';
   static const detailsNoteLabel = 'Details';
   static const submitNoteLabel = 'Submit';

@@ -7,12 +7,14 @@ class ThemeConfig {
   static const Color experimentalBackgroundColorLight = Color(0xe0FFF6F6);
   static const Color experimentalTextColorLight = Color(0xff444444);
   static const Color experimentalTertiaryLight = Color(0xFFFFF6F6);
+  static const Color experimentalOnTertiaryLight = Color(0xffdc2430);
 
   static const Color experimentalPrimaryColorDark = Color(0xffdc2430);
   static const Color experimentalAccentColorDark = Color(0xff6c9696);
   static const Color experimentalBackgroundColorDark = Color(0xe0333333);
   static const Color experimentalTextColorDark = Color(0x9BD8FFFF);
   static const Color experimentalTertiaryDark = Color(0xFF5F0404);
+  static const Color experimentalOnTertiaryDark = Color(0xBCFFFFFF);
 
   static const Color experimentalTertiary = Color(0xFFFFF6F6);
 
@@ -54,6 +56,9 @@ class ThemeConfig {
             ? ThemeConfig.experimentalTextColorDark
             : ThemeConfig.experimentalTextColorLight,
         onTertiary: _isDarkMode
+            ? ThemeConfig.experimentalOnTertiaryDark
+            : ThemeConfig.experimentalOnTertiaryLight,
+        tertiaryContainer: _isDarkMode
             ? ThemeConfig.experimentalTertiaryDark
             : ThemeConfig.experimentalTertiaryLight,
         error: ThemeConfig.experimentalPrimaryColorDark,

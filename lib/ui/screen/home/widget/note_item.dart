@@ -57,7 +57,7 @@ class NoteItem extends StatelessWidget {
                                                 fontWeight: FontWeight.bold,
                                                 color: Theme.of(context)
                                                     .colorScheme
-                                                    .onTertiary),
+                                                    .background),
                                       ))))
                         ])),
                     Text(
