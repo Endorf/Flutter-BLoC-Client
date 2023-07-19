@@ -9,6 +9,7 @@ class RootContentContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+        height: double.infinity,
         decoration: const BoxDecoration(
             gradient: RadialGradient(
           radius: 1.2,
