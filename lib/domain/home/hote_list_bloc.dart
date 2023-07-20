@@ -7,8 +7,19 @@ class NoteListBloc extends Bloc<Event, ListState> {
   final repository = FakeRepository();
 
   NoteListBloc() : super(ListState()) {
-    on<Event>((event, emit) async {
+    on<LoadEvent>((event, emit) async {
       emit(ListState(isLoading: true));
+
+      try {
+        await repository.authenticate();
+
+        emit(ListState(isReady: true));
+      } catch (error) {
+        emit(ListState(isReady: true));
+      }
+    });
+    on<RefreshEvent>((event, emit) async {
+      emit(ListState(isRefreshing: true));
 
       try {
         await repository.authenticate();

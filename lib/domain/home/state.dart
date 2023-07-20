@@ -11,9 +11,11 @@ class ListState {
   ];
   final bool isReady;
   final bool isLoading;
+  final bool isRefreshing;
 
   ListState({
     this.isLoading = false,
+    this.isRefreshing = false,
     this.isReady = false,
   });
 }
