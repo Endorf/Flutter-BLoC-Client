@@ -1,22 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
+// TODO: clean up style colors
 class ThemeConfig {
   static const Color experimentalPrimaryColorLight = Color(0xffdc2430);
   static const Color experimentalAccentColorLight = Color(0xFF326BD6);
   static const Color experimentalBackgroundColorLight = Color(0xe0FFF6F6);
   static const Color experimentalTextColorLight = Color(0xff444444);
-  static const Color experimentalTertiaryLight = Color(0xFFFFF6F6);
+  static const Color experimentalTitleTextColorLight = Color(0xFFFFF6F6);
+  static const Color experimentalTertiaryLight = Color(0xffdc2430);
+  static const Color experimentalTertiaryContainerLight = Color(0xFFFFF6F6);
   static const Color experimentalOnTertiaryLight = Color(0xffdc2430);
 
   static const Color experimentalPrimaryColorDark = Color(0xffdc2430);
-  static const Color experimentalAccentColorDark = Color(0xff6c9696);
+  static const Color experimentalAccentColorDark = Color(0xFF3BAEAE);
   static const Color experimentalBackgroundColorDark = Color(0xe0333333);
   static const Color experimentalTextColorDark = Color(0x9BD8FFFF);
-  static const Color experimentalTertiaryDark = Color(0xFF5F0404);
+  static const Color experimentalTitleTextColorDark = Color(0xFFCECECE);
+  static const Color experimentalTertiaryDark = Color(0xFF67190E);
   static const Color experimentalOnTertiaryDark = Color(0xBCFFFFFF);
+  static const Color experimentalTertiaryContainerDark = Color(0xFF2C7676);
 
   static const Color experimentalTertiary = Color(0xFFFFF6F6);
+  static const Color experimentalOnPrimary = Colors.white;
 
   static bool get _isDarkMode =>
       SchedulerBinding.instance.platformDispatcher.platformBrightness ==
@@ -39,6 +45,13 @@ class ThemeConfig {
           ? ThemeConfig.experimentalAccentColorDark
           : ThemeConfig.experimentalAccentColorLight);
 
+  static TextStyle get toolbarTextStyle => TextStyle(
+        fontSize: 22,
+        color: _isDarkMode
+            ? ThemeConfig.experimentalTitleTextColorDark
+            : ThemeConfig.experimentalTitleTextColorLight,
+      );
+
   static themeData(ThemeData theme) {
     return theme.copyWith(
       colorScheme: theme.colorScheme.copyWith(
@@ -48,7 +61,6 @@ class ThemeConfig {
         onPrimaryContainer: _isDarkMode
             ? ThemeConfig.experimentalAccentColorDark
             : ThemeConfig.experimentalPrimaryColorLight,
-        onPrimary: Colors.white,
         background: _isDarkMode
             ? ThemeConfig.experimentalBackgroundColorDark
             : ThemeConfig.experimentalBackgroundColorLight,
@@ -57,22 +69,34 @@ class ThemeConfig {
             : ThemeConfig.experimentalTextColorLight,
         onTertiary: _isDarkMode
             ? ThemeConfig.experimentalOnTertiaryDark
-            : ThemeConfig.experimentalOnTertiaryLight,
+            : ThemeConfig.experimentalAccentColorLight,
         tertiaryContainer: _isDarkMode
-            ? ThemeConfig.experimentalTertiaryDark
-            : ThemeConfig.experimentalTertiaryLight,
+            ? ThemeConfig.experimentalTertiaryContainerDark
+            : ThemeConfig.experimentalTertiaryContainerLight,
         error: ThemeConfig.experimentalPrimaryColorDark,
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
             backgroundColor: _isDarkMode
-                ? ThemeConfig.experimentalAccentColorDark
+                ? ThemeConfig.experimentalTertiaryContainerDark
                 : ThemeConfig.experimentalAccentColorLight,
             foregroundColor: ThemeConfig.experimentalTertiary,
             elevation: 1,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8),
             )),
+      ),
+      appBarTheme: AppBarTheme(
+        color: _isDarkMode
+            ? ThemeConfig.experimentalTertiaryDark
+            : ThemeConfig.experimentalTertiaryLight,
+        elevation: 1.0,
+        titleTextStyle: toolbarTextStyle,
+        iconTheme: IconThemeData(
+          color: _isDarkMode
+              ? ThemeConfig.experimentalTitleTextColorDark
+              : ThemeConfig.experimentalTitleTextColorLight,
+        ),
       ),
       textTheme: TextTheme(
         displayMedium: textStyle,
