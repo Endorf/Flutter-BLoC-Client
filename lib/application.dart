@@ -2,6 +2,7 @@ import 'package:bloc_app/domain/creation/creation_bloc.dart';
 import 'package:bloc_app/domain/home/hote_list_bloc.dart';
 import 'package:bloc_app/domain/initialization/event.dart';
 import 'package:bloc_app/domain/initialization/initialization_bloc.dart';
+import 'package:bloc_app/domain/login/login_bloc.dart';
 import 'package:bloc_app/domain/router/router_bloc.dart';
 import 'package:bloc_app/domain/router/state.dart';
 import 'package:bloc_app/ui/navigation/router_delegate.dart';
@@ -24,6 +25,7 @@ class Application extends StatelessWidget {
           create: (context) => InitializationBloc()..add(Event()),
         ),
         BlocProvider(create: (context) => RouterBloc()),
+        BlocProvider(create: (context) => LoginBloc()),
         BlocProvider(create: (context) => NoteListBloc()),
         BlocProvider(create: (context) => CreationBloc())
       ],
