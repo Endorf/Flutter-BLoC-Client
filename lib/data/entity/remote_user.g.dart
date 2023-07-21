@@ -7,7 +7,7 @@ part of 'remote_user.dart';
 // **************************************************************************
 
 RemoteUser _$RemoteUserFromJson(Map<String, dynamic> json) => RemoteUser(
-      json['userId'] as int,
+      json['id'] as int,
       json['email'] as String,
       json['username'] as String,
       json['name'] as String,
@@ -15,7 +15,7 @@ RemoteUser _$RemoteUserFromJson(Map<String, dynamic> json) => RemoteUser(
 
 Map<String, dynamic> _$RemoteUserToJson(RemoteUser instance) =>
     <String, dynamic>{
-      'userId': instance.userId,
+      'id': instance.id,
       'email': instance.email,
       'username': instance.username,
       'name': instance.name,

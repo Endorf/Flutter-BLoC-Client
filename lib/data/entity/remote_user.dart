@@ -4,12 +4,12 @@ part 'remote_user.g.dart';
 
 @JsonSerializable()
 class RemoteUser {
-  final int userId;
+  final int id;
   final String email;
   final String username;
   final String name;
 
-  RemoteUser(this.userId, this.email, this.username, this.name);
+  RemoteUser(this.id, this.email, this.username, this.name);
 
   factory RemoteUser.fromJson(Map<String, dynamic> json) =>
       _$RemoteUserFromJson(json);
