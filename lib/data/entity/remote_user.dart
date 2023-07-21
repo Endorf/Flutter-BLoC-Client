@@ -1,6 +1,6 @@
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-// part 'remote_user.g.dart';
+part 'remote_user.g.dart';
 
 @JsonSerializable()
 class RemoteUser {
@@ -11,8 +11,8 @@ class RemoteUser {
 
   RemoteUser(this.userId, this.email, this.username, this.name);
 
-  // factory RemoteUser.fromJson(Map<String, dynamic> json) =>
-  //     _$RemoteUserFromJson(json);
+  factory RemoteUser.fromJson(Map<String, dynamic> json) =>
+      _$RemoteUserFromJson(json);
 
-  // Map<String, dynamic> toJson() => _$RemoteUserToJson(this);
+  Map<String, dynamic> toJson() => _$RemoteUserToJson(this);
 }
