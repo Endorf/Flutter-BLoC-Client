@@ -1,24 +1,24 @@
-import 'package:bloc_app/data/fake_repository.dart';
+import 'package:bloc_app/data/auth_repository.dart';
 import 'package:bloc_app/domain/login/event.dart';
 import 'package:bloc_app/domain/login/state.dart';
-import 'package:bloc_app/ui/theme/resources/strings.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:multiple_result/multiple_result.dart';
 
 class LoginBloc extends Bloc<Event, LoginState> {
-  final repository = FakeRepository();
+  final repository = AuthRepository();
 
   LoginBloc() : super(LoginState()) {
     on<LoginEvent>((event, emit) async {
-      emit(LoginState(isLoading: true));
-
+      emit(state.copyWith(isLoading: true));
       try {
-        bool isAuthenticated = await repository.authenticate();
+        Result result = await repository.authenticate(event.email);
 
-        emit(LoginState(
-          isAuthenticated: isAuthenticated,
-          hasError: !isAuthenticated,
-          message: Strings.defaultErrorMessage,
-        ));
+        emit(state.copyWith(isLoading: false));
+        result.when((user) {
+          emit(state.copyWith(isAuthenticated: true, user: user));
+        }, (error) {
+          emit(state.copyWith(hasError: true, message: error.toString()));
+        });
       } catch (error) {
         emit(LoginState(isAuthenticated: false));
       }
