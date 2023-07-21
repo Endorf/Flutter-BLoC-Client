@@ -1,7 +1,8 @@
+import 'package:bloc_app/data/entity/remote_note.dart';
 import 'package:flutter/material.dart';
 
 class NoteItem extends StatelessWidget {
-  final String content;
+  final RemoteNote content;
 
   const NoteItem({super.key, required this.content});
 
@@ -32,7 +33,7 @@ class NoteItem extends StatelessWidget {
                         padding: const EdgeInsets.only(bottom: 4),
                         child: Row(children: [
                           Text(
-                            content,
+                            "User",
                             textAlign: TextAlign.center,
                             style: Theme.of(context).textTheme.bodyLarge,
                           ),
@@ -48,7 +49,7 @@ class NoteItem extends StatelessWidget {
                                       padding: const EdgeInsets.symmetric(
                                           vertical: 0, horizontal: 8),
                                       child: Text(
-                                        content,
+                                        "tag",
                                         textAlign: TextAlign.center,
                                         style: Theme.of(context)
                                             .textTheme
@@ -61,14 +62,14 @@ class NoteItem extends StatelessWidget {
                                       ))))
                         ])),
                     Text(
-                      content,
+                      content.title,
                       textAlign: TextAlign.center,
                       overflow: TextOverflow.ellipsis,
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                     // TODO: add divider
                     Text(
-                      content,
+                      content.body,
                       textAlign: TextAlign.center,
                       overflow: TextOverflow.ellipsis,
                       style: Theme.of(context).textTheme.bodySmall,

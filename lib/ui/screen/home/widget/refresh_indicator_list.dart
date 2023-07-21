@@ -72,7 +72,7 @@ class _RefreshIndicatorListState extends State<RefreshIndicatorList> {
         });
         return completer.future;
       },
-      child: NoteList(list: state.list),
+      child: NoteList(list: state.list ?? []),
     );
   }
 }
