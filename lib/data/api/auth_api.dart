@@ -1,12 +1,13 @@
 import 'dart:io';
 
 import 'package:bloc_app/data/entity/remote_user.dart';
+import 'package:bloc_app/service_locator.dart';
 import 'package:dio/dio.dart';
 import 'package:multiple_result/multiple_result.dart';
 
 class AuthApi {
   static const String url = "";
-  final _client = Dio();
+  final _client = locator<Dio>();
 
   Future<Result<RemoteUser, Exception>> login(String email) async {
     var payload = {
