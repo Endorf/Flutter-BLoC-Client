@@ -1,17 +1,18 @@
-import 'package:bloc_app/data/auth_repository.dart';
+import 'package:bloc_app/data/repository/auth_repository.dart';
 import 'package:bloc_app/domain/login/event.dart';
 import 'package:bloc_app/domain/login/state.dart';
+import 'package:bloc_app/service_locator.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:multiple_result/multiple_result.dart';
 
 class LoginBloc extends Bloc<Event, LoginState> {
-  final repository = AuthRepository();
+  final _repository = locator<AuthRepository>();
 
   LoginBloc() : super(LoginState()) {
     on<LoginEvent>((event, emit) async {
       emit(state.copyWith(isLoading: true));
       try {
-        Result result = await repository.authenticate(event.email);
+        Result result = await _repository.authenticate(event.email);
 
         emit(state.copyWith(isLoading: false));
         result.when((user) {
