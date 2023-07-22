@@ -63,7 +63,7 @@ class _RefreshIndicatorListState extends State<RefreshIndicatorList> {
         // RefreshIndicator couldn't show infinitely indicator according to docs
         context.read<NoteListBloc>().add(RefreshEvent());
         setState(() {
-          completer = Completer<void>();
+          if (completer.isCompleted) completer = Completer<void>();
         });
         return completer.future;
       },
