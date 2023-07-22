@@ -17,32 +17,28 @@ class NoteListBloc extends Bloc<Event, ListState> {
 
         emit(state.copyWith(isLoading: false));
         result.when((notes) {
-          emit(state.copyWith(isReady: true, list: notes));
+          emit(state.copyWith(list: notes));
         }, (error) {
-          emit(state.copyWith(isReady: true));
+          // emit(state.copyWith()); //TODO: add error message
         });
-
-        emit(ListState(isReady: true));
       } catch (error) {
-        emit(ListState(isReady: true));
+        // emit(ListState());
       }
     });
     on<RefreshEvent>((event, emit) async {
-      emit(ListState(isRefreshing: true));
+      emit(state.copyWith(isRefreshing: true));
 
       try {
         Result result = await _repository.notes();
 
-        emit(state.copyWith(isLoading: false));
+        emit(state.copyWith(isRefreshing: false));
         result.when((notes) {
-          emit(state.copyWith(isReady: true, list: notes));
+          emit(state.copyWith(list: notes));
         }, (error) {
-          emit(state.copyWith(isReady: true));
+          // emit(state.copyWith()); //TODO: add error message
         });
-
-        emit(ListState(isReady: true));
       } catch (error) {
-        emit(ListState(isReady: true));
+        // emit(state.copyWith());
       }
     });
   }

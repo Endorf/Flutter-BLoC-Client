@@ -40,9 +40,7 @@ class _RefreshIndicatorListState extends State<RefreshIndicatorList> {
           BlocListener<NoteListBloc, ListState>(
             bloc: BlocProvider.of<NoteListBloc>(context),
             listener: (context, state) {
-              if (state.isReady &&
-                  !state.isRefreshing &&
-                  !completer.isCompleted) {
+              if (!state.isRefreshing && !completer.isCompleted) {
                 completer.complete();
               }
             },
