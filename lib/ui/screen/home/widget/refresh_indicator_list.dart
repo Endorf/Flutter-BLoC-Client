@@ -49,14 +49,9 @@ class _RefreshIndicatorListState extends State<RefreshIndicatorList> {
           )
         ],
         child: BlocBuilder<NoteListBloc, ListState>(
-          bloc: BlocProvider.of<NoteListBloc>(context),
+          bloc: BlocProvider.of<NoteListBloc>(context)..add(LoadEvent()),
           builder: (context, state) {
-            return Stack(
-              children: [
-                _buildList(context, state),
-                LinearProgressBar(isLoading: state.isLoading),
-              ],
-            );
+            return _buildList(context, state);
           },
         ));
   }
