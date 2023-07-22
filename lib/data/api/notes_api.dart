@@ -1,29 +1,24 @@
 import 'dart:io';
-
-import 'package:bloc_app/data/entity/remote_user.dart';
+import 'package:bloc_app/data/entity/remote_note.dart';
 import 'package:dio/dio.dart';
 import 'package:multiple_result/multiple_result.dart';
 
-class AuthApi {
+class NotesApi {
   static const String url = "";
+
   final _client = Dio();
 
-  Future<Result<RemoteUser, Exception>> login(String email) async {
-    var payload = {
-      "email": email,
-    };
-
+  Future<Result<List<RemoteNote>, Exception>> notes() async {
     try {
       final Response response = await _client.get(
         url,
-        data: payload,
         options: Options(headers: {
           HttpHeaders.contentTypeHeader: "application/json",
         }),
       );
 
       if (_isSuccess(response.statusCode)) {
-        return Result.success(RemoteUser.fromJson(response.data));
+        return Result.success(listOfNotes(response.data));
       } else {
         return Result.error(Exception(response.statusMessage));
       }

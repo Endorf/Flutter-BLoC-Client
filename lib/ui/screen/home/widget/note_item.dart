@@ -1,7 +1,8 @@
+import 'package:bloc_app/data/entity/remote_note.dart';
 import 'package:flutter/material.dart';
 
 class NoteItem extends StatelessWidget {
-  final String content;
+  final RemoteNote content;
 
   const NoteItem({super.key, required this.content});
 
@@ -23,58 +24,68 @@ class NoteItem extends StatelessWidget {
                 semanticLabel: 'Text description',
               ),
             ),
-            Padding(
+            Expanded(
+              child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 8),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                        padding: const EdgeInsets.only(bottom: 4),
-                        child: Row(children: [
-                          Text(
-                            content,
-                            textAlign: TextAlign.center,
-                            style: Theme.of(context).textTheme.bodyLarge,
-                          ),
-                          Padding(
+                      padding: const EdgeInsets.only(bottom: 4),
+                      child: Row(children: [
+                        Text(
+                          "User",
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).textTheme.bodyLarge,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 0, horizontal: 8),
+                          child: Container(
+                            decoration: const BoxDecoration(
+                                color: Colors.red,
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(8))),
+                            child: Padding(
                               padding: const EdgeInsets.symmetric(
                                   vertical: 0, horizontal: 8),
-                              child: Container(
-                                  decoration: const BoxDecoration(
-                                      color: Colors.red,
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(8))),
-                                  child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          vertical: 0, horizontal: 8),
-                                      child: Text(
-                                        content,
-                                        textAlign: TextAlign.center,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .bodySmall!
-                                            .copyWith(
-                                                fontWeight: FontWeight.bold,
-                                                color: Theme.of(context)
-                                                    .colorScheme
-                                                    .background),
-                                      ))))
-                        ])),
+                              child: Text(
+                                "tag",
+                                textAlign: TextAlign.center,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodySmall!
+                                    .copyWith(
+                                      fontWeight: FontWeight.bold,
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .background,
+                                    ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ]),
+                    ),
                     Text(
-                      content,
-                      textAlign: TextAlign.center,
-                      overflow: TextOverflow.ellipsis,
+                      content.title,
+                      textAlign: TextAlign.start,
+                      overflow: TextOverflow.visible,
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
-                    // TODO: add divider
+                    Divider(
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+                    ),
                     Text(
-                      content,
-                      textAlign: TextAlign.center,
-                      overflow: TextOverflow.ellipsis,
+                      content.body,
+                      textAlign: TextAlign.start,
+                      overflow: TextOverflow.visible,
                       style: Theme.of(context).textTheme.bodySmall,
                     ),
                   ],
-                ))
+                ),
+              ),
+            ),
           ],
         ),
       ),

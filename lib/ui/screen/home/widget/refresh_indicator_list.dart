@@ -40,23 +40,16 @@ class _RefreshIndicatorListState extends State<RefreshIndicatorList> {
           BlocListener<NoteListBloc, ListState>(
             bloc: BlocProvider.of<NoteListBloc>(context),
             listener: (context, state) {
-              if (state.isReady &&
-                  !state.isRefreshing &&
-                  !completer.isCompleted) {
+              if (!state.isRefreshing && !completer.isCompleted) {
                 completer.complete();
               }
             },
           )
         ],
         child: BlocBuilder<NoteListBloc, ListState>(
-          bloc: BlocProvider.of<NoteListBloc>(context),
+          bloc: BlocProvider.of<NoteListBloc>(context)..add(LoadEvent()),
           builder: (context, state) {
-            return Stack(
-              children: [
-                _buildList(context, state),
-                LinearProgressBar(isLoading: state.isLoading),
-              ],
-            );
+            return _buildList(context, state);
           },
         ));
   }
@@ -68,11 +61,11 @@ class _RefreshIndicatorListState extends State<RefreshIndicatorList> {
         // RefreshIndicator couldn't show infinitely indicator according to docs
         context.read<NoteListBloc>().add(RefreshEvent());
         setState(() {
-          completer = Completer<void>();
+          if (completer.isCompleted) completer = Completer<void>();
         });
         return completer.future;
       },
-      child: NoteList(list: state.list),
+      child: NoteList(list: state.list ?? []),
     );
   }
 }

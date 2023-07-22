@@ -10,11 +10,13 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:bloc_app/data/api/auth_api.dart' as _i3;
-import 'package:bloc_app/data/di.dart' as _i8;
+import 'package:bloc_app/data/api/notes_api.dart' as _i7;
+import 'package:bloc_app/data/di.dart' as _i10;
 import 'package:bloc_app/data/repository/auth_repository.dart' as _i4;
-import 'package:bloc_app/data/repository/fake_repository.dart' as _i6;
-import 'package:bloc_app/data/storage/remote_datastore.dart' as _i7;
-import 'package:dio/dio.dart' as _i5;
+import 'package:bloc_app/data/repository/fake_repository.dart' as _i5;
+import 'package:bloc_app/data/repository/notes_repository.dart' as _i6;
+import 'package:bloc_app/data/storage/remote_note_datastore.dart' as _i8;
+import 'package:bloc_app/data/storage/remote_user_datastore.dart' as _i9;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
@@ -32,11 +34,13 @@ extension GetItInjectableX on _i1.GetIt {
     final dataModule = _$DataModule();
     gh.singleton<_i3.AuthApi>(dataModule.authApi);
     gh.factory<_i4.AuthRepository>(() => dataModule.authRepository);
-    gh.singleton<_i5.Dio>(dataModule.dio());
-    gh.factory<_i6.FakeRepository>(() => dataModule.fakeRepository);
-    gh.singleton<_i7.RemoteDataStore>(dataModule.remoteDataStore);
+    gh.factory<_i5.FakeRepository>(() => dataModule.fakeRepository);
+    gh.factory<_i6.NoteRepository>(() => dataModule.noteRepository);
+    gh.singleton<_i7.NotesApi>(dataModule.notesApi);
+    gh.singleton<_i8.RemoteNoteDataStore>(dataModule.remoteNoteDataStore);
+    gh.singleton<_i9.RemoteUserDataStore>(dataModule.remoteUserDataStore);
     return this;
   }
 }
 
-class _$DataModule extends _i8.DataModule {}
+class _$DataModule extends _i10.DataModule {}
