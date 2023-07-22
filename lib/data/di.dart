@@ -5,7 +5,6 @@ import 'package:bloc_app/data/repository/fake_repository.dart';
 import 'package:bloc_app/data/repository/notes_repository.dart';
 import 'package:bloc_app/data/storage/remote_note_datastore.dart';
 import 'package:bloc_app/data/storage/remote_user_datastore.dart';
-import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
 @module
