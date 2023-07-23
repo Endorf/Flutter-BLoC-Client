@@ -54,14 +54,16 @@ class LoginScreen extends StatelessWidget {
             child: SizedBox(
               width: double.infinity,
               child: Padding(
-                padding: const EdgeInsets.only(
-                  left: _cardPaddingStart,
-                  top: _cardPaddingTop,
-                  right: _cardPaddingEnd,
-                  bottom: _cardPaddingBottom,
-                ),
-                child: LoginForm(onSubmitForm: _onSubmitForm),
-              ),
+                  padding: const EdgeInsets.only(
+                    left: _cardPaddingStart,
+                    top: _cardPaddingTop,
+                    right: _cardPaddingEnd,
+                    bottom: _cardPaddingBottom,
+                  ),
+                  child: AbsorbPointer(
+                    absorbing: state.isLoading,
+                    child: LoginForm(onSubmitForm: _onSubmitForm),
+                  )),
             ),
           ),
         ),
