@@ -17,4 +17,6 @@ class Strings {
   static const submitNoteLabel = 'Submit';
 
   static const defaultErrorMessage = 'Something went wrong';
+  static const errrorEmptyError = 'Email must not be empty';
+  static const errrorIncorrectError = 'Email is incorrect';
 }
