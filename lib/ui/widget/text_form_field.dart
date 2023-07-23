@@ -6,11 +6,13 @@ class DefaultTextFormField extends StatelessWidget {
   final String labelText;
   final TextEditingController? controller;
   final TextInputType keyboardType;
+  final String? Function(String? value)? validationCallback;
 
   const DefaultTextFormField({
     super.key,
     required this.labelText,
     this.controller,
+    this.validationCallback,
     this.keyboardType = TextInputType.text,
   });
 
@@ -27,12 +29,7 @@ class DefaultTextFormField extends StatelessWidget {
           autocorrect: false,
           keyboardType: keyboardType,
           obscureText: false,
-          validator: (value) {
-            if (value == null || value.isEmpty) {
-              return 'Please enter some text';
-            }
-            return null;
-          },
+          validator: validationCallback,
           style: Theme.of(context).textTheme.bodyMedium,
           controller: controller,
           decoration: InputDecoration(
