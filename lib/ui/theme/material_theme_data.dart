@@ -128,6 +128,7 @@ class ThemeConfig {
   static Color lightBG = Colors.green;
   static Color darkBG = Colors.green;
 
+  // ignore: unused_field
   static final ThemeData _lightTheme = ThemeData(
     colorScheme: ColorScheme.fromSwatch().copyWith(
       secondary: lightBG,
@@ -151,6 +152,7 @@ class ThemeConfig {
     ),
   );
 
+  // ignore: unused_field
   static final ThemeData _darkTheme = ThemeData(
     brightness: Brightness.dark,
     colorScheme: ColorScheme.fromSwatch().copyWith(
@@ -158,9 +160,7 @@ class ThemeConfig {
       brightness: Brightness.dark,
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
-      style: ElevatedButton.styleFrom(
-        primary: Colors.green,
-      ),
+      style: ElevatedButton.styleFrom(),
     ),
     primaryColor: darkPrimary,
     scaffoldBackgroundColor: darkBG,
@@ -178,6 +178,7 @@ class ThemeConfig {
     ),
   );
 
+  // ignore: unused_element
   ThemeData _themeLightData(ThemeData theme) {
     return theme.copyWith(
       colorScheme: theme.colorScheme.copyWith(

@@ -3,7 +3,6 @@ import 'package:bloc_app/ui/screen/home/widget/note_item.dart';
 import 'package:flutter/material.dart';
 
 class NoteList extends StatelessWidget {
-  final double _avatarRadius = 52.0;
   final List<RemoteNote> list;
 
   const NoteList({super.key, required this.list});

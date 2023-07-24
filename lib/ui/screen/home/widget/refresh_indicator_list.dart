@@ -6,7 +6,6 @@ import 'package:bloc_app/domain/home/event.dart';
 import 'package:bloc_app/domain/home/hote_list_bloc.dart';
 import 'package:bloc_app/domain/home/state.dart';
 import 'package:bloc_app/ui/screen/home/widget/note_list.dart';
-import 'package:bloc_app/ui/widget/progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

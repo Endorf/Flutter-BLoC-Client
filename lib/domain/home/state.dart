@@ -1,5 +1,5 @@
 import 'package:bloc_app/data/entity/remote_note.dart';
-import 'package:bloc_app/util/%20copy.dart';
+import 'package:bloc_app/util/copy.dart';
 
 class ListState implements Copyable<ListState> {
   final List<RemoteNote>? list;
