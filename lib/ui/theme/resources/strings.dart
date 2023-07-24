@@ -19,4 +19,5 @@ class Strings {
   static const defaultErrorMessage = 'Something went wrong';
   static const errrorEmptyError = 'Email must not be empty';
   static const errrorIncorrectError = 'Email is incorrect';
+  static const creationTitlerEmptyError = 'Title should not be empty';
 }
