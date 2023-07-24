@@ -2,10 +2,10 @@ import 'package:bloc_app/ui/navigation/main_transition_delegate.dart';
 import 'package:bloc_app/domain/router/event.dart';
 import 'package:bloc_app/domain/router/router_bloc.dart';
 import 'package:bloc_app/domain/router/state.dart';
-import 'package:bloc_app/ui/screen/creation/page/creation_page.dart';
-import 'package:bloc_app/ui/screen/home/page/home_page.dart';
-import 'package:bloc_app/ui/screen/login/page/login_page.dart';
-import 'package:bloc_app/ui/screen/splash/page/splash_page.dart';
+import 'package:bloc_app/ui/navigation/page/creation_page.dart';
+import 'package:bloc_app/ui/navigation/page/home_page.dart';
+import 'package:bloc_app/ui/navigation/page/login_page.dart';
+import 'package:bloc_app/ui/navigation/page/splash_page.dart';
 import 'package:flutter/material.dart';
 
 class RootRouterDelegate extends RouterDelegate<RouteState>
