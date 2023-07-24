@@ -1,5 +1,5 @@
 import 'package:bloc_app/data/entity/remote_user.dart';
-import 'package:bloc_app/util/%20copy.dart';
+import 'package:bloc_app/util/copy.dart';
 
 class LoginState implements Copyable<LoginState> {
   final bool isAuthenticated;
